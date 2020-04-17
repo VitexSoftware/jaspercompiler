@@ -1,0 +1,16 @@
+#!/usr/bin/make -f
+
+#export DH_VERBOSE = 1
+
+JAVA_HOME := /usr/lib/jvm/default-java
+
+override_dh_auto_configure:
+override_dh_auto_test:
+override_dh_auto_clean:
+override_dh_auto_build:
+	mvn install
+
+override_dh_auto_install:
+        
+%:
+	dh $@

@@ -1,0 +1,11 @@
+Package: jaspercompiler
+Version: 0.1
+Architecture: all
+Maintainer: Vítězslav Dvořák <info@vitexsoftware.cz>
+Installed-Size: 19984
+Depends: flexibee-client
+Section: devel
+Priority: optional
+Homepage: https://github.com/VitexSoftware/jaspercompiler
+Description: Commandline Jasper compiler
+    Compile jrxml to binary jasper files

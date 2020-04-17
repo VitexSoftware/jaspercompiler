@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+    <groupId>com.vitexsoftware</groupId>
+    <artifactId>jaspercompiler</artifactId>
+    <version>0.1</version>
+    <packaging>jar</packaging>
+    <name>jaspercompiler</name>
+    <description>Commandline compiler from jrxml file to jasper binary</description>
+    <developers>
+        <developer>
+            <name>Vitex</name>
+            <email>info@vitexsoftware.cz</email>
+        </developer>
+    </developers>
+    <dependencies>
+        <dependency>
+            <groupId>net.sf.jasperreports</groupId>
+            <artifactId>jasperreports</artifactId>
+            <version>6.12.2</version>
+        </dependency>
+        <dependency>
+            <groupId>commons-io</groupId>
+            <artifactId>commons-io</artifactId>
+            <version>2.6</version>
+            <type>jar</type>
+        </dependency>
+        <dependency>
+            <groupId>log4j</groupId>
+            <artifactId>log4j</artifactId>
+            <version>1.2.17</version>
+        </dependency>
+    </dependencies>
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.source>11</maven.compiler.source>
+        <maven.compiler.target>11</maven.compiler.target>
+    </properties>
+    <build>
+        <plugins>
+            <plugin>
+                <artifactId>maven-assembly-plugin</artifactId>
+                <executions>
+                    <execution>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>single</goal>
+                        </goals>
+                    </execution>
+                </executions>
+                <configuration>
+                    <archive>
+                        <manifestEntries>
+                            <Main-Class>com.vitexsoftware.jaspercompiler.Commandline</Main-Class>
+                            <Launcher-Agent-Class>com.vitexsoftware.jaspercompiler.Agent</Launcher-Agent-Class>
+                        </manifestEntries>
+                        <manifest>
+                            <mainClass>com.vitexsoftware.jaspercompiler.Commandline</mainClass>
+                        </manifest>
+                    </archive>
+                    <descriptorRefs>
+                        <descriptorRef>jar-with-dependencies</descriptorRef>
+                    </descriptorRefs>
+                    <attach>true</attach>
+                </configuration>
+
+
+            </plugin> 
+        </plugins>
+    </build>
+    
+</project>

@@ -1,0 +1,17 @@
+Source: jaspercompiler
+Section: devel
+Priority: optional
+Maintainer: Vítězslav Dvořák <info@vitexsoftware.cz>
+Build-Depends: debhelper (>= 5), cdbs, default-jdk-headless, quilt, maven-debian-helper,
+ libslf4j-java, libjdom1-java
+Standards-Version: 3.9.5
+Homepage: https://github.com/VitexSoftware/jaspercompiler
+Vcs-Git: git@github.com:VitexSoftware/jaspercompiler.git
+Vcs-Browser: https://github.com/VitexSoftware/jaspercompiler
+
+Package: jaspercompiler
+Architecture: all
+Depends: ${misc:Depends},flexibee-client
+Description: Commandline Jasper compiler
+    Compile jrxml to binary jasper files
+
