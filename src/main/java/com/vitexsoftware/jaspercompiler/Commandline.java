@@ -66,6 +66,7 @@ public class Commandline {
 
                 if (args.length == 1) {
                     destinationFilename = sourceFileName.replace(".jrxml", ".jasper");
+                    JasperCompileManager.compileReportToFile(sourceFileName);
                 } else {
                     File f = new File(args[1]);
                     if (f.exists() && f.isDirectory()) {
@@ -74,14 +75,15 @@ public class Commandline {
                     } else {
                         destinationFilename = args[1];
                     }
+                    JasperCompileManager.compileReportToFile(sourceFileName, destinationFilename);
                 }
                 System.out.println("Compiling Report Design: " + destinationFilename);
-                JasperCompileManager.compileReportToFile(sourceFileName, destinationFilename);
             } catch (JRException e) {
                 e.printStackTrace();
             }
         } else {
-            System.out.println("Usage: jaspcompiler /path/to/report.jxml [destination/path/[filename.jasper]]");
+            System.out.println("Commandline FlexiBee custom reports compiler v0.2");
+            System.out.println("Usage: jaspercompiler /path/to/report.jxml [destination/path/[filename.jasper]]");
         }
     }
 }
