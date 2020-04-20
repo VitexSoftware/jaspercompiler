@@ -1,9 +1,9 @@
 Package: jaspercompiler
-Version: 0.1
+Version: 0.2
 Architecture: all
 Maintainer: Vítězslav Dvořák <info@vitexsoftware.cz>
 Installed-Size: 19984
-Depends: flexibee-client
+Depends: flexibee-client | flexibee-server
 Section: devel
 Priority: optional
 Homepage: https://github.com/VitexSoftware/jaspercompiler

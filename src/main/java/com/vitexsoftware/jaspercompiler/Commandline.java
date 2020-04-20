@@ -2,7 +2,7 @@
  * Jasper Compiler with FlexiBee support
  *
  * @author Vítězslav Dvořák <info@vitexsoftware.cz>
- * @copyright  2020 Vitex Software
+ * @copyright 2020 Vitex Software
  */
 package com.vitexsoftware.jaspercompiler;
 
@@ -62,22 +62,21 @@ public class Commandline {
                 addToClasspath(winstromJar);
             }
 
+            File tmp = new File(sourceFileName);
             try {
 
                 if (args.length == 1) {
-                    File tmp = new File(sourceFileName);
-                    destinationFilename = tmp.getPath() + "/" +  tmp.getName().replace(".jrxml", ".jasper");
+                    destinationFilename = tmp.getPath() + "/" + tmp.getName().replace(".jrxml", ".jasper");
                 } else {
                     File f = new File(args[1]);
                     if (f.exists() && f.isDirectory()) {
-                        File tmp = new File(sourceFileName);
                         destinationFilename = args[1] + "/" + tmp.getName().replace(".jrxml", ".jasper");
                     } else {
                         destinationFilename = args[1];
                     }
                 }
-                System.out.println("Compiling Report Design: " + destiantionFilename);
-                JasperCompileManager.compileReportToFile(sourceFileName, destinationFilename);                
+                System.out.println("Compiling Report Design: " + destinationFilename);
+                JasperCompileManager.compileReportToFile(sourceFileName, destinationFilename);
             } catch (JRException e) {
                 e.printStackTrace();
             }
