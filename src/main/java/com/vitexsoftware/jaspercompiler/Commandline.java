@@ -66,7 +66,7 @@ public class Commandline {
             try {
 
                 if (args.length == 1) {
-                    destinationFilename = tmp.getPath() + "/" + tmp.getName().replace(".jrxml", ".jasper");
+                    destinationFilename = tmp.getPath().replace(".jrxml", ".jasper");
                 } else {
                     File f = new File(args[1]);
                     if (f.exists() && f.isDirectory()) {
