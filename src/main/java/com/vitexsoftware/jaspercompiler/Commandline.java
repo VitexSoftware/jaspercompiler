@@ -62,7 +62,6 @@ public class Commandline {
                 addToClasspath(winstromJar);
             }
 
-            File tmp = new File(sourceFileName);
             try {
 
                 if (args.length == 1) {
@@ -70,6 +69,7 @@ public class Commandline {
                 } else {
                     File f = new File(args[1]);
                     if (f.exists() && f.isDirectory()) {
+                        File tmp = new File(sourceFileName);
                         destinationFilename = args[1] + "/" + tmp.getName().replace(".jrxml", ".jasper");
                     } else {
                         destinationFilename = args[1];
