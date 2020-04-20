@@ -1,7 +1,8 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/**
+ * Jasper Compiler with FlexiBee support
+ *
+ * @author Vítězslav Dvořák <info@vitexsoftware.cz>
+ * @copyright  2020 Vitex Software
  */
 package com.vitexsoftware.jaspercompiler;
 
@@ -64,9 +65,9 @@ public class Commandline {
             try {
 
                 if (args.length == 1) {
-                    JasperCompileManager.compileReportToFile(sourceFileName);
+                    File tmp = new File(sourceFileName);
+                    destinationFilename = tmp.getPath() + "/" +  tmp.getName().replace(".jrxml", ".jasper");
                 } else {
-
                     File f = new File(args[1]);
                     if (f.exists() && f.isDirectory()) {
                         File tmp = new File(sourceFileName);
@@ -74,17 +75,14 @@ public class Commandline {
                     } else {
                         destinationFilename = args[1];
                     }
-                    JasperCompileManager.compileReportToFile(sourceFileName, destinationFilename);
                 }
-
+                System.out.println("Compiling Report Design: " + destiantionFilename);
+                JasperCompileManager.compileReportToFile(sourceFileName, destinationFilename);                
             } catch (JRException e) {
                 e.printStackTrace();
             }
-            System.out.println("Compiling Report Design ... " + sourceFileName);
-
         } else {
-            System.out.println("Usage: jaspcomp /path/to/report.jxml");
+            System.out.println("Usage: jaspcompiler /path/to/report.jxml [destination/path/[filename.jasper]]");
         }
     }
-
 }
