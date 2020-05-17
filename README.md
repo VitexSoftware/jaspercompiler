@@ -1,6 +1,8 @@
 Commandline Jasper Compiler
 ===========================
 
+![logo](jaspercompiler.svg?raw=true)
+
 Simple tool able to comple FlexiBee customs reports into given destination
 
 Usage
