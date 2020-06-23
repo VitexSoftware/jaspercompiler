@@ -5,7 +5,7 @@ Commandline Jasper Compiler
 
 Simple tool able to comple FlexiBee customs reports into given destination
 
-jaspercompiler is used by https://github.com/VitexSoftware/FlexiBee-Tools by its report uploader **upreport** 
+jaspercompiler is used in https://github.com/VitexSoftware/FlexiBee-Tools by its report uploader **upreport** 
 
 Usage
 -----
