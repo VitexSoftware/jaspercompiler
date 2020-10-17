@@ -15,7 +15,7 @@ call it like this:
 ```shell
     jaspercompiler /path/to/report.jrxml
 ```
-to build **/path/to/report.rasper**
+to build **/path/to/report.jasper**
 
 also you can specify another destination (directory or filepath) as second parameter.
 
