@@ -9,6 +9,7 @@ package com.vitexsoftware.jaspercompiler;
 import java.io.File;
 import java.io.FileFilter;
 import java.io.IOException;
+import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
@@ -23,6 +24,17 @@ import org.apache.commons.io.filefilter.WildcardFileFilter;
  */
 public class Commandline {
 
+     /**
+     * Linux Lib Path
+     */
+    public static final String LINUX_LIBDIR = "/usr/share/flexibee/lib/";
+
+    /**
+     * Windows Lib Path
+     */
+    public static final String WINDOWS_LIBDIR = "C:\\Program Files (x86)\\WinStrom\\lib";
+    
+    
     public static List<File> winstromJars(String searchIn) {
         File dir = new File(searchIn);
         FileFilter fileFilter = new WildcardFileFilter("*.jar");
@@ -52,13 +64,26 @@ public class Commandline {
         Agent.addClassPath(file);
     }
 
-    public static void main(String[] args) throws IOException, ClassNotFoundException {
+    public static void main(String[] args) throws IOException, ClassNotFoundException, Exception {
 
         if (args.length > 0) {
             String sourceFileName = new String(args[0]);
             String destinationFilename = new String();
-
-            for (File winstromJar : winstromJars("/usr/share/flexibee/lib/")) {
+            File linuxLibDir  = new File(LINUX_LIBDIR);
+            String libDir = new String();
+            
+            if(linuxLibDir.exists()){
+                libDir = linuxLibDir.toString();
+            } else {    
+                File windowsLibDir  = new File(WINDOWS_LIBDIR);
+                if(windowsLibDir.exists()){
+                    libDir = windowsLibDir.toString();
+                } else {
+                    throw new Exception("No Winstrom Lib dir found");
+                }
+            }            
+            
+            for (File winstromJar : winstromJars(libDir)) {
                 addToClasspath(winstromJar);
             }
 
