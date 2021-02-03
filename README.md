@@ -5,6 +5,8 @@ Commandline Jasper Compiler
 
 Simple tool able to comple FlexiBee customs reports into given destination
 
+jaspercompiler is used in https://github.com/VitexSoftware/FlexiBee-Tools by its report uploader **upreport** 
+
 Usage
 -----
 
@@ -13,11 +15,9 @@ call it like this:
 ```shell
     jaspercompiler /path/to/report.jrxml
 ```
-to build **/path/to/report.rasper**
+to build **/path/to/report.jasper**
 
 also you can specify another destination (directory or filepath) as second parameter.
-
-
 
 Installation
 ------------
