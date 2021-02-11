@@ -1,3 +1,0 @@
-#!/bin/sh
-java --illegal-access=deny -jar /usr/share/java/jaspercompiler-0.2-jar-with-dependencies.jar $1 $2
-
