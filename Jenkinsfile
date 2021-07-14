@@ -43,6 +43,7 @@ pipeline {
             
         }
 
+/**
 #        stage('debian-testing') {
 #            agent {
 #                docker { image 'vitexsoftware/debian:testing' }
@@ -62,7 +63,7 @@ pipeline {
 #                }
 #            }
 #        }
-
+**/
         stage('ubuntu-focal') {
             agent {
                 docker { image 'vitexsoftware/ubuntu:stable' }
