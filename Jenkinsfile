@@ -43,27 +43,27 @@ pipeline {
             
         }
 
-/**
-#        stage('debian-testing') {
-#            agent {
-#                docker { image 'vitexsoftware/debian:testing' }
-#            }
-#            steps {
-#                dir('build/debian/package') {
-#                    checkout scm
-#		            buildPackage()
-#		            installPackages()
-#                }
-#                stash includes: 'dist/**', name: 'dist-bullseye'
-#            }
-#            post {
-#                success {
-#                    archiveArtifacts 'dist/debian/'
-#                    copyArtifact()
-#                }
-#            }
-#        }
-**/
+
+//        stage('debian-testing') {
+//            agent {
+//                docker { image 'vitexsoftware/debian:testing' }
+//            }
+//            steps {
+//                dir('build/debian/package') {
+//                    checkout scm
+//		            buildPackage()
+//		            installPackages()
+//                }
+//                stash includes: 'dist/**', name: 'dist-bullseye'
+//            }
+//            post {
+//                success {
+//                    archiveArtifacts 'dist/debian/'
+//                    copyArtifact()
+//                }
+//            }
+//        }
+
         stage('ubuntu-focal') {
             agent {
                 docker { image 'vitexsoftware/ubuntu:stable' }
