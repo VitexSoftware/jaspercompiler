@@ -155,7 +155,7 @@ def buildPackage() {
 //	    pristineTarName: ''
     sh 'dch -b -v ' + VER  + ' "' + env.BUILD_TAG  + '"'
     sh 'sudo apt-get update'
-    sh 'gpg --batch --passphrase '' --quick-gen-key "VitexSoftware Jenkins <jenkins@vitexsoftware.cz>" default default'
+    sh 'gpg --batch --passphrase "" --quick-gen-key "VitexSoftware Jenkins <jenkins@vitexsoftware.cz>" default default'
     sh 'gpg --list-keys --keyid-format LONG | grep pub'
     sh 'debuild-pbuilder  -i -us -uc -b'
     sh 'mkdir -p $WORKSPACE/dist/debian/ ; rm -rf $WORKSPACE/dist/debian/* ; mv ../' + SOURCE + '*_' + VER + '_*.deb ../' + SOURCE + '*_' + VER + '_*.changes ../' + SOURCE + '*_' + VER + '_*.build $WORKSPACE/dist/debian/'
