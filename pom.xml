@@ -13,6 +13,12 @@
             <email>info@vitexsoftware.cz</email>
         </developer>
     </developers>
+    <repositories>
+	<repository>
+	    <id>jaspersoft-third-party</id>
+	    <url>https://jaspersoft.jfrog.io/jaspersoft/third-party-ce-artifacts/</url>
+	</repository>
+    </repositories>
     <dependencies>
         <dependency>
             <groupId>net.sf.jasperreports</groupId>
