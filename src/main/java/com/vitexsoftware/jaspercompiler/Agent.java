@@ -20,11 +20,23 @@ public class Agent {
 
     private static Instrumentation inst = null;
 
-    // The JRE will call method before launching your main()
+    /**
+     * The JRE will call method before launching your main()
+     * 
+     * @param a     agent arguments
+     * @param inst  the instrumentation instance
+     */
     public static void agentmain(final String a, final Instrumentation inst) {
         Agent.inst = inst;
     }
 
+    /**
+     * Add a jar file to the classpath of the running JVM.
+     * 
+     * @param f The jar file to add to the classpath
+     * 
+     * @return true if the jar was successfully added to the classpath
+     */
     public static boolean addClassPath(File f) {
         try {
             inst.appendToSystemClassLoaderSearch(new JarFile(f));

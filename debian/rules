@@ -7,6 +7,8 @@ export JAVA_HOME = /usr/lib/jvm/default-java
 override_dh_auto_configure:
 override_dh_auto_test:
 override_dh_auto_clean:
+	rm -rf target
+	dh_auto_clean
 override_dh_auto_build:
 	mvn install
 

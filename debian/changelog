@@ -1,6 +1,10 @@
-jaspercompiler (0.2) UNRELEASED; urgency=medium
+jaspercompiler (0.3) UNRELEASED; urgency=medium
 
+  [ CyberVitexus ]
   * Initial release.
   * Small fixes
 
- -- CyberVitexus <vitex@exiv.jinonice.czf>  Fri, 17 Apr 2020 16:25:39 +0200
+  [ vitex ]
+  * package updated
+
+ -- vitex <info@vitexsoftware.cz>  Thu, 21 Sep 2023 10:46:07 +0200

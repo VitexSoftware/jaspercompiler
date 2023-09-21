@@ -9,7 +9,6 @@ package com.vitexsoftware.jaspercompiler;
 import java.io.File;
 import java.io.FileFilter;
 import java.io.IOException;
-import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
@@ -34,7 +33,13 @@ public class Commandline {
      */
     public static final String WINDOWS_LIBDIR = "C:\\Program Files (x86)\\WinStrom\\lib";
     
-    
+    /**
+     * Find all winstrom jars in given directory
+     * 
+     * @param searchIn directory to search in
+     * 
+     * @return List files found
+     */
     public static List<File> winstromJars(String searchIn) {
         File dir = new File(searchIn);
         FileFilter fileFilter = new WildcardFileFilter("*.jar");
@@ -57,6 +62,8 @@ public class Commandline {
      * <b>Example</b><br /><br />
      * {@code ClasspathHacker.addToClasspath(new File('example.jar'));}<br />
      * {@code ClassInExampleJar.doStuff();}
+     * 
+     * @throws java.io.IOException file not found
      *
      * @param file The jar file to add to the classpath
      */
@@ -64,6 +71,14 @@ public class Commandline {
         Agent.addClassPath(file);
     }
 
+    /**
+     * @param args the command line arguments
+     * @throws java.io.IOException                     file not found
+     * @throws java.lang.ClassNotFoundException        class not found
+     * @throws java.lang.Exception                     exception   
+     * @throws net.sf.jasperreports.engine.JRException jasper exception
+     * 
+     */
     public static void main(String[] args) throws IOException, ClassNotFoundException, Exception {
 
         if (args.length > 0) {
@@ -107,7 +122,7 @@ public class Commandline {
                 e.printStackTrace();
             }
         } else {
-            System.out.println("Commandline FlexiBee custom reports compiler v0.2");
+            System.out.println("Commandline AbraFlexi custom reports compiler v0.3");
             System.out.println("Usage: jaspercompiler /path/to/report.jxml [destination/path/[filename.jasper]]");
         }
     }
