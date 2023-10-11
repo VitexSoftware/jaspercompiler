@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.vitexsoftware</groupId>
     <artifactId>jaspercompiler</artifactId>
-    <version>0.3</version>
+    <version>0.4</version>
     <packaging>jar</packaging>
     <name>jaspercompiler</name>
     <description>Commandline compiler from jrxml file to jasper binary with AbraFlexi support</description>
@@ -14,11 +15,39 @@
         </developer>
     </developers>
     <repositories>
-	<repository>
-	    <id>jaspersoft-third-party</id>
-	    <url>https://jaspersoft.jfrog.io/jaspersoft/third-party-ce-artifacts/</url>
-	</repository>
+        <repository>
+            <id>jaspersoft-third-party</id>
+            <url>https://jaspersoft.jfrog.io/jaspersoft/third-party-ce-artifacts/</url>
+        </repository>
+
+        <repository>
+            <id>central</id>
+            <name>Central Repository</name>
+            <url>https://repo.maven.apache.org/maven2</url>
+            <layout>default</layout>
+            <snapshots>
+              <enabled>false</enabled>
+            </snapshots>
+          </repository>
+
     </repositories>
+
+    <pluginRepositories>
+        <pluginRepository>
+          <id>central</id>
+          <name>Central Repository</name>
+          <url>https://repo.maven.apache.org/maven2</url>
+          <layout>default</layout>
+          <snapshots>
+            <enabled>false</enabled>
+          </snapshots>
+          <releases>
+            <updatePolicy>never</updatePolicy>
+          </releases>
+        </pluginRepository>
+      </pluginRepositories>
+     
+
     <dependencies>
         <dependency>
             <groupId>net.sf.jasperreports</groupId>
@@ -31,6 +60,23 @@
             <version>2.7</version>
             <type>jar</type>
         </dependency>
+
+        <!-- SLF4J API -->
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>2.0.9</version>
+        </dependency>
+
+        <!-- LOG4J -->
+
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-log4j12</artifactId>
+            <version>2.0.9</version>
+        </dependency>
+
     </dependencies>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -67,8 +113,8 @@
                 </configuration>
 
 
-            </plugin> 
-            
+            </plugin>
+
             <plugin>
                 <artifactId>maven-source-plugin</artifactId>
                 <version>3.2.1</version>
@@ -82,11 +128,11 @@
                     </execution>
                 </executions>
             </plugin>
-  
-            <plugin>
+
+            <!-- <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
-                <version>3.2.0</version>
+                <version>3.6.0</version>
                 <executions>
                     <execution>
                         <id>attach-javadocs</id>
@@ -95,8 +141,8 @@
                         </goals>
                     </execution>
                 </executions>
-            </plugin>                          
-            
+            </plugin> -->
+
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-gpg-plugin</artifactId>
@@ -110,8 +156,8 @@
                         </goals>
                     </execution>
                 </executions>
-            </plugin>            
-            
+            </plugin>
+
         </plugins>
     </build>
     <distributionManagement>
@@ -123,7 +169,7 @@
             <id>sonatype-nexus-staging</id>
             <name>Nexus Release Repository</name>
             <url>https://oss.sonatype.org/service/local/staging/deploy/maven2</url>
-        </repository>        
-    </distributionManagement>    
-    
+        </repository>
+    </distributionManagement>
+
 </project>

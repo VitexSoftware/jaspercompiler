@@ -1,2 +1,4 @@
+java:Depends=
+java:Recommends=
 misc:Depends=
 misc:Pre-Depends=

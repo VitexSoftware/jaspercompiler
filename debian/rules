@@ -4,6 +4,8 @@
 
 export JAVA_HOME = /usr/lib/jvm/default-java
 
+PROJECT_VERSION := $(shell mvn help:evaluate -Dexpression=project.version -q -DforceStdout)
+
 override_dh_auto_configure:
 override_dh_auto_test:
 override_dh_auto_clean:
@@ -13,6 +15,17 @@ override_dh_auto_build:
 	mvn install
 
 override_dh_auto_install:
+#	sed -i 's/VERSION/$(PROJECT_VERSION)/' debian/jaspercompiler/usr/bin/jaspercompiler
+#	cat debian/jaspercompiler/usr/bin/jaspercompiler
+
+binary-post-install/lib$(PACKAGE)-java::
+	mh_installpoms -plib$(PACKAGE)-java
+	mh_installjar -plib$(PACKAGE)-java -l pom.xml build/$(PACKAGE)-$(VERSION).jar 
+
+clean::
+	mh_clean
+
         
 %:
-	dh $@
+	dh $@  --with javahelper
+
