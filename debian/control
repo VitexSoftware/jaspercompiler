@@ -3,7 +3,7 @@ Section: devel
 Priority: optional
 Maintainer: Vítězslav Dvořák <info@vitexsoftware.cz>
 Build-Depends: debhelper (>= 5), cdbs, default-jdk-headless, quilt, maven-debian-helper,
- libslf4j-java, libjdom1-java, libxml2-utils, javahelper
+ libslf4j-java, libjdom1-java, libxml2-utils, javahelper, dpkg-dev
 Build-Depends-Indep: maven-repo-helper, maven-ant-helper, libplexus-utils-java,
  libplexus-container-default-java
 Standards-Version: 4.3.0
