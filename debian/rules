@@ -25,7 +25,8 @@ binary-post-install/lib$(PACKAGE)-java::
 clean::
 	mh_clean
 
-        
-%:
-	dh $@  --with javahelper
-
+override_dh_builddeb:
+	dpkg-genbuildinfo -O../jaspercompiler_0.4_amd64.buildinfo
+	dpkg-genchanges -O../jaspercompiler_0.4_amd64.changes
+	dh_builddeb
+	
