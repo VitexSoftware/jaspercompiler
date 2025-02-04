@@ -13,8 +13,10 @@ Vcs-Browser: https://github.com/VitexSoftware/jaspercompiler
 
 Package: jaspercompiler
 Architecture: all
-Depends: ${misc:Depends}, default-jre-headless
+Depends: ${misc:Depends}, default-jre-headless, libslf4j-java, ${maven:Depends},
 Recommends: flexibee-client|flexibee-server|abraflexi-client|abraflexi-server
+Suggests:
+ ${maven:OptionalDepends}
 Description: Commandline Jasper compiler
     Compile jrxml to binary jasper files
 

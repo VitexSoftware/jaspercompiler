@@ -2,7 +2,7 @@
  * Jasper Compiler with FlexiBee support
  *
  * @author Vítězslav Dvořák <info@vitexsoftware.cz>
- * @copyright 2020 Vitex Software
+ * @copyright 2020-2025 VitexSoftware
  */
 package com.vitexsoftware.jaspercompiler;
 

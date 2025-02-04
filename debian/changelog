@@ -1,4 +1,10 @@
-jaspercompiler (0.4) UNRELEASED; urgency=medium
+jaspercompiler (0.4.1) UNRELEASED; urgency=medium
+
+  * update for debian 12
+
+ -- vitex <info@vitexsoftware.cz>  Tue, 04 Feb 2025 20:12:47 +0100
+
+jaspercompiler (0.4) unstable; urgency=medium
 
   [ CyberVitexus ]
   * Initial release.
@@ -7,4 +13,4 @@ jaspercompiler (0.4) UNRELEASED; urgency=medium
   [ vitex ]
   * package updated
 
- -- vitex <info@vitexsoftware.cz>  Thu, 21 Sep 2023 10:46:07 +0200
+ -- vitex <info@vitexsoftware.cz>  Tue, 04 Feb 2025 20:12:36 +0100

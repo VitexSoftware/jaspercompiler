@@ -4,3 +4,5 @@
 debian/files
 debian/.debhelper/
 
+/debian/maven-repo/
+/debian/jaspercompiler.debhelper.log

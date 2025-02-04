@@ -10,8 +10,12 @@
                 <goal>org.codehaus.mojo:exec-maven-plugin:1.5.0:exec</goal>
             </goals>
             <properties>
-                <exec.args>-classpath %classpath ${packageClassName} /home/vitex/Projects/FlexiBee/WinstromReports/vykazAnalyzaZakazky/analyzaZakazky.jrxml</exec.args>
+                <exec.args>${exec.vmArgs} -classpath %classpath ${exec.mainClass} ${exec.appArgs}</exec.args>
                 <exec.executable>java</exec.executable>
+                <exec.mainClass>com.vitexsoftware.jaspercompiler.Commandline</exec.mainClass>
+                <exec.vmArgs></exec.vmArgs>
+                <exec.appArgs>/home/vitex/Projects/FlexiBee/WinstromReports/vykazAnalyzaZakazky/analyzaZakazky.jrxml</exec.appArgs>
+                <exec.workingdir>/home/vitex/Projects/VitexSoftware/jaspercompiler</exec.workingdir>
             </properties>
         </action>
         <action>
@@ -24,9 +28,13 @@
                 <goal>org.codehaus.mojo:exec-maven-plugin:1.5.0:exec</goal>
             </goals>
             <properties>
-                <exec.args>-agentlib:jdwp=transport=dt_socket,server=n,address=${jpda.address} -classpath %classpath ${packageClassName} /home/vitex/Projects/FlexiBee/WinstromReports/vykazAnalyzaZakazky/analyzaZakazky.jrxml</exec.args>
+                <exec.args>${exec.vmArgs} -classpath %classpath ${exec.mainClass} ${exec.appArgs}</exec.args>
                 <exec.executable>java</exec.executable>
                 <jpda.listen>true</jpda.listen>
+                <exec.mainClass>com.vitexsoftware.jaspercompiler.Commandline</exec.mainClass>
+                <exec.vmArgs>-agentlib:jdwp=transport=dt_socket,server=n,address=${jpda.address}</exec.vmArgs>
+                <exec.appArgs>/home/vitex/Projects/FlexiBee/WinstromReports/vykazAnalyzaZakazky/analyzaZakazky.jrxml</exec.appArgs>
+                <exec.workingdir>/home/vitex/Projects/VitexSoftware/jaspercompiler</exec.workingdir>
             </properties>
         </action>
         <action>
@@ -39,8 +47,12 @@
                 <goal>org.codehaus.mojo:exec-maven-plugin:1.5.0:exec</goal>
             </goals>
             <properties>
-                <exec.args>-classpath %classpath ${packageClassName} /home/vitex/Projects/FlexiBee/WinstromReports/vykazAnalyzaZakazky/analyzaZakazky.jrxml</exec.args>
+                <exec.args>${exec.vmArgs} -classpath %classpath ${exec.mainClass} ${exec.appArgs}</exec.args>
                 <exec.executable>java</exec.executable>
+                <exec.mainClass>com.vitexsoftware.jaspercompiler.Commandline</exec.mainClass>
+                <exec.vmArgs></exec.vmArgs>
+                <exec.appArgs>/home/vitex/Projects/FlexiBee/WinstromReports/vykazAnalyzaZakazky/analyzaZakazky.jrxml</exec.appArgs>
+                <exec.workingdir>/home/vitex/Projects/VitexSoftware/jaspercompiler</exec.workingdir>
             </properties>
         </action>
     </actions>

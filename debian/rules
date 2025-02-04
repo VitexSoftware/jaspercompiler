@@ -1,32 +1,38 @@
 #!/usr/bin/make -f
 
-#export DH_VERBOSE = 1
+export DH_VERBOSE = 1
 
 export JAVA_HOME = /usr/lib/jvm/default-java
 
-PROJECT_VERSION := $(shell mvn help:evaluate -Dexpression=project.version -q -DforceStdout)
+PROJECT_VERSION := $(shell dpkg-parsechangelog --show-field Version)
+LINK_JARS := slf4j-api
+
+%:
+	dh $@
+
+override_dh_link:
+	for JAR in $(LINK_JARS); do \
+		dh_link /usr/share/java/$$JAR.jar /usr/share/jaspercompiler/lib/$$JAR.jar; \
+	done
+
+override_dh_clean:
+	dh_clean
+	$(RM) $(CURDIR)/debian/jaspercompiler.svg
+
+override_dh_install:
+	dh_install
+	sed -i 's/VERSION/$(PROJECT_VERSION)/' debian/jaspercompiler/usr/bin/jaspercompiler
+	cat debian/jaspercompiler/usr/bin/jaspercompiler
+#	$(RM) -r $(CURDIR)/debian/jaspercompiler/usr/share/maven-repo
+
 
 override_dh_auto_configure:
 override_dh_auto_test:
-override_dh_auto_clean:
-	rm -rf target
-	dh_auto_clean
+
 override_dh_auto_build:
-	mvn install
+	mvn package
 
 override_dh_auto_install:
-#	sed -i 's/VERSION/$(PROJECT_VERSION)/' debian/jaspercompiler/usr/bin/jaspercompiler
-#	cat debian/jaspercompiler/usr/bin/jaspercompiler
-
-binary-post-install/lib$(PACKAGE)-java::
-	mh_installpoms -plib$(PACKAGE)-java
-	mh_installjar -plib$(PACKAGE)-java -l pom.xml build/$(PACKAGE)-$(VERSION).jar 
 
 clean::
 	mh_clean
-
-override_dh_builddeb:
-	dpkg-genbuildinfo -O../jaspercompiler_0.4_amd64.buildinfo
-	dpkg-genchanges -O../jaspercompiler_0.4_amd64.changes
-	dh_builddeb
-	

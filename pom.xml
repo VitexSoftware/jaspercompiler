@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.vitexsoftware</groupId>
     <artifactId>jaspercompiler</artifactId>
-    <version>0.4</version>
+    <version>0.4.1</version>
     <packaging>jar</packaging>
     <name>jaspercompiler</name>
     <description>Commandline compiler from jrxml file to jasper binary with AbraFlexi support</description>
@@ -26,26 +25,26 @@
             <url>https://repo.maven.apache.org/maven2</url>
             <layout>default</layout>
             <snapshots>
-              <enabled>false</enabled>
+                <enabled>false</enabled>
             </snapshots>
-          </repository>
+        </repository>
 
     </repositories>
 
     <pluginRepositories>
         <pluginRepository>
-          <id>central</id>
-          <name>Central Repository</name>
-          <url>https://repo.maven.apache.org/maven2</url>
-          <layout>default</layout>
-          <snapshots>
-            <enabled>false</enabled>
-          </snapshots>
-          <releases>
-            <updatePolicy>never</updatePolicy>
-          </releases>
+            <id>central</id>
+            <name>Central Repository</name>
+            <url>https://repo.maven.apache.org/maven2</url>
+            <layout>default</layout>
+            <snapshots>
+                <enabled>false</enabled>
+            </snapshots>
+            <releases>
+                <updatePolicy>never</updatePolicy>
+            </releases>
         </pluginRepository>
-      </pluginRepositories>
+    </pluginRepositories>
      
 
     <dependencies>
@@ -83,6 +82,8 @@
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
         <maven.compiler.release>11</maven.compiler.release>
+        <debian.originalVersion>0.4.1</debian.originalVersion>
+        <debian.package>jaspercompiler</debian.package>
     </properties>
     <build>
         <plugins>

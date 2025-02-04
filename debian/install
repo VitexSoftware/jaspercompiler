@@ -1,3 +1,2 @@
 src/main/resources/usr/bin/jaspercompiler	usr/bin
 target/jaspercompiler-*-jar-with-dependencies.jar	usr/share/java/
-
