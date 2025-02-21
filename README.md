@@ -5,7 +5,7 @@ Commandline Jasper Compiler
 
 [![wakatime](https://wakatime.com/badge/user/5abba9ca-813e-43ac-9b5f-b1cfdf3dc1c7/project/dd9822ba-7b9b-4130-a157-ef66b3da1675.svg)](https://wakatime.com/badge/user/5abba9ca-813e-43ac-9b5f-b1cfdf3dc1c7/project/dd9822ba-7b9b-4130-a157-ef66b3da1675)
 
-Simple tool able to comple FlexiBee customs reports into given destination
+Simple tool able to comple [AbraFlexi customs reports](https://github.com/Vitexus/winstrom-reports) into given destination
 
 jaspercompiler is used in https://github.com/VitexSoftware/AbraFlexi-Tools by its report uploader **upreport** 
 
