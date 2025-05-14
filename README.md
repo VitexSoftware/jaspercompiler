@@ -7,7 +7,7 @@ Commandline Jasper Compiler
 
 Simple tool able to comple [AbraFlexi customs reports](https://github.com/Vitexus/winstrom-reports) into given destination
 
-jaspercompiler is used in https://github.com/VitexSoftware/AbraFlexi-Tools by its report uploader **upreport** 
+jaspercompiler is used in [AbraFlexi-Tools](https://github.com/VitexSoftware/AbraFlexi-Report-Tools) by its report uploader **upreport** 
 
 Usage
 -----
