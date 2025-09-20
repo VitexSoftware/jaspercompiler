@@ -6,3 +6,6 @@ debian/.debhelper/
 
 /debian/maven-repo/
 /debian/jaspercompiler.debhelper.log
+debian/files
+debian/debhelper-build-stamp
+debian/stamp-poms-patched
