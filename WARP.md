@@ -91,6 +91,12 @@ The Agent class uses Java's instrumentation API to add JAR files to the system c
 ### Error Handling
 The application has built-in fallback logic for library path detection and provides clear error messages when AbraFlexi libraries cannot be found.
 
+### Filename Validation
+The application validates that the input JRXML filename matches the `name` attribute of the `jasperReport` XML element. If they differ:
+- A visible warning is displayed
+- The destination filename is automatically adjusted to use the correct report name from the XML
+- This ensures generated .jasper files have consistent naming with their internal report definitions
+
 ## Usage Patterns
 
 ### Basic Compilation
