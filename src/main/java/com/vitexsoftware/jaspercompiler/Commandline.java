@@ -13,9 +13,15 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Iterator;
 import java.util.List;
+import javax.xml.parsers.DocumentBuilder;
+import javax.xml.parsers.DocumentBuilderFactory;
+import javax.xml.parsers.ParserConfigurationException;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperCompileManager;
 import org.apache.commons.io.filefilter.WildcardFileFilter;
+import org.w3c.dom.Document;
+import org.w3c.dom.Element;
+import org.xml.sax.SAXException;
 
 /**
  *
@@ -53,6 +59,29 @@ public class Commandline {
             }
         }
         return files;
+    }
+
+    /**
+     * Extracts the name attribute from the jasperReport root element
+     * 
+     * @param jrxmlFile the JRXML file to parse
+     * 
+     * @return the name attribute value, or null if not found or error occurs
+     */
+    public static String extractJasperReportName(File jrxmlFile) {
+        try {
+            DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
+            DocumentBuilder builder = factory.newDocumentBuilder();
+            Document document = builder.parse(jrxmlFile);
+            
+            Element rootElement = document.getDocumentElement();
+            if ("jasperReport".equals(rootElement.getNodeName())) {
+                return rootElement.getAttribute("name");
+            }
+        } catch (ParserConfigurationException | SAXException | IOException e) {
+            System.err.println("Warning: Could not parse JRXML file to extract name attribute: " + e.getMessage());
+        }
+        return null;
     }
 
     /**
@@ -104,9 +133,9 @@ public class Commandline {
 
             try {
 
+                // Determine base destination based on args
                 if (args.length == 1) {
                     destinationFilename = sourceFileName.replace(".jrxml", ".jasper");
-                    JasperCompileManager.compileReportToFile(sourceFileName);
                 } else {
                     File f = new File(args[1]);
                     if (f.exists() && f.isDirectory()) {
@@ -115,8 +144,33 @@ public class Commandline {
                     } else {
                         destinationFilename = args[1];
                     }
+                }
+
+                // New check: ensure filename matches jasperReport name
+                File srcFile = new File(sourceFileName);
+                String baseName = srcFile.getName().replaceFirst("\\.jrxml$", "");
+                String reportName = extractJasperReportName(srcFile);
+                if (reportName != null && !reportName.isEmpty() && !baseName.equals(reportName)) {
+                    System.out.println("WARNING: Input filename base ('" + baseName + "') differs from jasperReport name ('" + reportName + "').");
+                    // Adjust destination filename to use reportName
+                    if (destinationFilename.endsWith(".jasper")) {
+                        destinationFilename = destinationFilename.replaceFirst("[^/\\\\]+\\.jasper$", reportName + ".jasper");
+                    } else {
+                        // If destination is a directory path without .jasper, append corrected name
+                        if (new File(destinationFilename).isDirectory()) {
+                            destinationFilename = new File(destinationFilename, reportName + ".jasper").getPath();
+                        }
+                    }
+                    System.out.println("Destination adjusted to: " + destinationFilename);
+                }
+
+                // Perform compilation
+                if (args.length == 1) {
+                    JasperCompileManager.compileReportToFile(sourceFileName);
+                } else {
                     JasperCompileManager.compileReportToFile(sourceFileName, destinationFilename);
                 }
+
                 System.out.println("Compiling Report Design: " + destinationFilename);
             } catch (JRException e) {
                 e.printStackTrace();
