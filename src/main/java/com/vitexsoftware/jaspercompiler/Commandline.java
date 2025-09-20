@@ -176,7 +176,7 @@ public class Commandline {
                 e.printStackTrace();
             }
         } else {
-            System.out.println("Commandline AbraFlexi custom reports compiler v0.4.1");
+            System.out.println("Commandline AbraFlexi custom reports compiler v0.5.0");
             System.out.println("Usage: jaspercompiler /path/to/report.jxml [destination/path/[filename.jasper]]");
         }
     }

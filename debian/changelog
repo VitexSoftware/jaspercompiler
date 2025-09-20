@@ -1,3 +1,13 @@
+jaspercompiler (0.5.0) UNRELEASED; urgency=medium
+
+  * Updated to JasperReports 6.21.3
+  * Updated dependencies (Commons IO 2.16.1, SLF4J 2.0.16)
+  * Added filename vs jasperReport name validation with automatic correction
+  * Improved error handling and user feedback
+  * Enhanced documentation
+
+ -- vitex <info@vitexsoftware.cz>  Fri, 20 Sep 2025 19:46:00 +0200
+
 jaspercompiler (0.4.1) UNRELEASED; urgency=medium
 
   * update for debian 12
