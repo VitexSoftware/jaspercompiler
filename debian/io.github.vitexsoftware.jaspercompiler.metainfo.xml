@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component type="desktop-application">
+  <id>io.github.vitexsoftware.jaspercompiler</id>
+  <metadata_license>MIT</metadata_license>
+  <project_license>MIT</project_license>
+  <name>jaspercompiler</name>
+  <summary>Commandline Jasper compiler</summary>
+  <description>
+    <p>
+      Compile jrxml to binary jasper files
+    </p>
+  </description>
+  <categories>
+    <category>Utility</category>
+  </categories>
+  <url type="homepage">https://github.com/VitexSoftware/jaspercompiler</url>
+  <url type="bugtracker">https://github.com/VitexSoftware/jaspercompiler/issues</url>
+  <developer id="cz.vitexsoftware">
+    <name>VitexSoftware</name>
+  </developer>
+  <content_rating type="oars-1.1"/>
+</component>
