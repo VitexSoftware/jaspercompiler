@@ -33,6 +33,14 @@ also you can specify another destination (directory or filepath) as second param
 - Java 11 or higher
 - AbraFlexi/FlexiBee installation (for library dependencies)
 
+## Pinned JasperReports version (security note)
+
+`pom.xml` intentionally pins `net.sf.jasperreports:jasperreports` to **6.21.3**. This is a deliberate compatibility constraint, not an oversight or stale dependency.
+
+Per the AbraFlexi/FlexiBee support documentation on [user reports](https://podpora.flexibee.eu/cs/articles/4553831-uzivatelske-reporty), custom user reports must be compiled against exactly version 6.21.3 — newer JasperReports releases are not guaranteed compatible with AbraFlexi's report templates and integration.
+
+This version is affected by [GHSA-9wxq-mwqw-8hhg](https://github.com/advisories/GHSA-9wxq-mwqw-8hhg), a high-severity Java deserialization vulnerability leading to remote code execution, fixed upstream in 7.0.7. **Do not bump this dependency to silence the security alert** without first confirming AbraFlexi/FlexiBee has certified compatibility with a newer JasperReports release — doing so risks breaking report compilation for all users of this tool.
+
 ## Development
 
 Build from source:

@@ -23,6 +23,8 @@ Jaspercompiler is a command-line tool for compiling JasperReports XML templates 
 - SLF4J 2.0.16 with Simple implementation (logging)
 - Java 11 (minimum required version)
 
+**Do not bump JasperReports past 6.21.3**, even to silence a CVE/security-advisory alert (e.g. GHSA-9wxq-mwqw-8hhg, a high-severity RCE deserialization vulnerability fixed upstream in 7.0.7). The pin is deliberate: AbraFlexi/FlexiBee's [user report docs](https://podpora.flexibee.eu/cs/articles/4553831-uzivatelske-reporty) require exactly 6.21.3 for report compatibility. Confirm AbraFlexi/FlexiBee has certified a newer version before touching this dependency.
+
 ## Development Commands
 
 ### Build
