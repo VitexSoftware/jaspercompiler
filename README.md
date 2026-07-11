@@ -61,7 +61,7 @@ Installation
 ```shell
 sudo apt install lsb-release wget
 echo "deb http://repo.vitexsoftware.com $(lsb_release -sc) main" | sudo tee /etc/apt/sources.list.d/vitexsoftware.list
-sudo wget -O /etc/apt/trusted.gpg.d/vitexsoftware.gpg http://repo.vitexsoftware.com/keyring.gpg
+sudo wget -O /etc/apt/trusted.gpg.d/vitexsoftware.gpg http://repo.vitexsoftware.com/KEY.gpg
 sudo apt update
 sudo apt install jaspercompiler
 ```
